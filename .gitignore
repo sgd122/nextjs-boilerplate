@@ -23,9 +23,13 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+.pnpm-debug.log*
 
 # local env files
 .env*.local
+.env
+.env.production
+.env.stage
 
 # vercel
 .vercel
@@ -33,3 +37,53 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+/.lighthouseci/
+/lhci_reports/
+
+# Created by https://www.toptal.com/developers/gitignore/api/cypressio
+# Edit at https://www.toptal.com/developers/gitignore?templates=cypressio
+
+### CypressIO ###
+# gitignore template for the CypressIO, browser test framework
+# website: https://www.cypress.io/
+
+cypress/results/*
+cypress/reports/*
+cypress/screenshots/*
+cypress/videos/*
+
+# End of https://www.toptal.com/developers/gitignore/api/cypressio
+# Sentry
+.sentryclirc
+
+# Sentry
+next.config.original.js
+
+# Sentry
+next.config.wizardcopy.js
+
+# Sentry
+.sentryclirc
+
+# Sentry
+next.config.original.js
+
+# Sentry
+next.config.wizardcopy.js
+
+# Sentry
+.sentryclirc
+
+# Sentry
+next.config.original.js
+
+# Sentry
+next.config.wizardcopy.js
+
+#webstorm
+.idea
+
+/public/sitemap-0.xml
+/public/sitemap.xml
+/public/robots.txt
