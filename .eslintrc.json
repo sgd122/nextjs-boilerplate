@@ -6,7 +6,7 @@
     "node": true
   },
   "extends": [
-    // 해당 플러그인의 권장 규칙을 사용합니다.
+    "next/core-web-vitals",
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
@@ -26,7 +26,9 @@
     "no-unsafe-optional-chaining": 1,
     // camelCase를 강제합니다.
     "camelcase": [
-      "error", { "properties": "never", "ignoreDestructuring": false }],
+      "error",
+      { "properties": "never", "ignoreDestructuring": false }
+    ],
     // 사용하지 않는 변수는 에러를 발생시킵니다.
     "no-unused-vars": "error",
     // import 경로가 잘못된 경우 경고를 활성화합니다.
