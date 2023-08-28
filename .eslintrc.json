@@ -10,6 +10,7 @@
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
+    "plugin:@tanstack/eslint-plugin-query/recommended",
     "plugin:prettier/recommended"
   ],
   "parser": "@typescript-eslint/parser", // ESLint 파서를 지정합니다.
@@ -20,8 +21,17 @@
     "ecmaVersion": "latest", // Modern ECMAScript를 파싱할 수 있습니다.
     "sourceType": "module" // import, export를 사용할 수 있습니다.
   },
-  "plugins": ["react", "@typescript-eslint", "prettier", "import"],
+  "plugins": ["react", "@typescript-eslint", "@tanstack/query", "prettier", "import"],
   "rules": {
+    "@tanstack/query/exhaustive-deps": "error",
+    "@tanstack/query/prefer-query-object-syntax": "error",
+    "react/function-component-definition": [
+      2,
+      {
+        "namedComponents": "arrow-function"
+      }
+    ],
+    "@typescript-eslint/no-explicit-any": "error",
     // undefined로 확인되는 값에서 optional chanining에 대한 경고를 활성화한다(에러x)
     "no-unsafe-optional-chaining": 1,
     // camelCase를 강제합니다.
