@@ -1,6 +1,16 @@
 {
-  "name": "my-app",
+  "name": "nextjs-boilerplate",
   "version": "0.1.0",
+  "author": {
+    "name": "GiDong Seong",
+    "email": "sgd0947@gmail.com",
+    "url": "https://blog.dnd.ac/"
+  },
+  "description": "Next.js boilerplate",
+  "keywords": [
+    "nextjs",
+    "boilerplate"
+  ],
   "private": true,
   "scripts": {
     "dev": "next dev",
