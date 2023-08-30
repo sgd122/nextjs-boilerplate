@@ -1,6 +1,7 @@
 import './globals.css';
 import type { Metadata } from 'next';
 
+import JotaiContext from '@/components/Context/JotaiContext';
 import ReactQueryContext from '@/components/Context/ReqctQueryContext';
 import AuthContext from '@/components/Context/SessionContext';
 import StyledComponentsRegistry from '@/lib/registry';
@@ -20,7 +21,9 @@ const RootLayout = async ({ children }: { children: React.ReactNode }) => {
         <body>
           <GlobalStyle />
           <StyledComponentsRegistry>
-            <ReactQueryContext>{children}</ReactQueryContext>
+            <JotaiContext>
+              <ReactQueryContext>{children}</ReactQueryContext>
+            </JotaiContext>
           </StyledComponentsRegistry>
         </body>
       </AuthContext>
