@@ -4,7 +4,6 @@ import type { Metadata } from 'next';
 import ReactQueryContext from '@/components/Context/ReqctQuery';
 import AuthContext from '@/components/Context/SessionContext';
 import StyledComponentsRegistry from '@/lib/registry';
-import { notoSansKr, notoSerifFont, pretendardFont } from '@/styles/fonts';
 import GlobalStyle from '@/styles/global-styles';
 import { getUserServerSession } from '@/utils/session/getUserServerSession';
 
@@ -16,10 +15,7 @@ export const metadata: Metadata = {
 const RootLayout = async ({ children }: { children: React.ReactNode }) => {
   const session = await getUserServerSession();
   return (
-    <html
-      lang="en"
-      className={`${notoSansKr.className} ${notoSerifFont.className} ${pretendardFont.className}`}
-    >
+    <html lang="ko">
       <AuthContext session={session}>
         <body>
           <GlobalStyle />

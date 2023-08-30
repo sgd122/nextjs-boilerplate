@@ -3,6 +3,8 @@
 import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
 
+import { notoSansKr, notoSerifFont, pretendardFont } from '@/styles/fonts';
+
 const GlobalStyle = createGlobalStyle`
   ${reset}
   *,
@@ -14,8 +16,10 @@ const GlobalStyle = createGlobalStyle`
   }
 
 
-  body {
-    
+  html, body {
+    padding: 0;
+    margin: 0;
+    font-family: ${pretendardFont.style.fontFamily}, ${notoSerifFont.style.fontFamily}, ${notoSansKr.style.fontFamily}, Malgun Gothic, Helvetica Neue, sans-serif;
   }
   
   #__next {
@@ -52,7 +56,10 @@ const GlobalStyle = createGlobalStyle`
 
   a {
     text-decoration: none;
-    cursor: pointer;
+  }
+  
+  a:hover {
+    text-decoration: underline;
   }
 
   button {

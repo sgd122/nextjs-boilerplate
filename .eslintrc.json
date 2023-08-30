@@ -23,6 +23,7 @@
   },
   "plugins": ["react", "@typescript-eslint", "@tanstack/query", "prettier", "import"],
   "rules": {
+    "no-use-before-define": "off",
     "@tanstack/query/exhaustive-deps": "error",
     "@tanstack/query/prefer-query-object-syntax": "error",
     "react/function-component-definition": [
