@@ -1,7 +1,7 @@
 import './globals.css';
 import type { Metadata } from 'next';
 
-import ReactQueryContext from '@/components/Context/ReqctQuery';
+import ReactQueryContext from '@/components/Context/ReqctQueryContext';
 import AuthContext from '@/components/Context/SessionContext';
 import StyledComponentsRegistry from '@/lib/registry';
 import GlobalStyle from '@/styles/global-styles';

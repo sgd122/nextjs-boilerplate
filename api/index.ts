@@ -2,7 +2,7 @@ import type { AxiosRequestConfig } from 'axios';
 import axios from 'axios';
 import { getSession } from 'next-auth/react';
 
-import { BASE_URL } from './config';
+import { BASE_URL } from '@/api/config';
 
 const instance = axios.create({
   baseURL: BASE_URL,

@@ -21,7 +21,13 @@
     "ecmaVersion": "latest", // Modern ECMAScript를 파싱할 수 있습니다.
     "sourceType": "module" // import, export를 사용할 수 있습니다.
   },
-  "plugins": ["react", "@typescript-eslint", "@tanstack/query", "prettier", "import"],
+  "plugins": [
+    "react",
+    "@typescript-eslint",
+    "@tanstack/query",
+    "prettier",
+    "import"
+  ],
   "rules": {
     "no-use-before-define": "off",
     "@tanstack/query/exhaustive-deps": "error",
