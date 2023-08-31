@@ -6,7 +6,9 @@ interface Sample {
 }
 
 export const fetchMainBanners = async (id: number): Promise<Sample[]> => {
-  const { data } = await instance.get<Sample[]>(`${API_URL.DETAIL(id)}`);
+  const { data } = await instance.get<Sample[]>(
+    `${API_URL.DETAIL(id).pathname}`
+  );
 
   return data;
 };

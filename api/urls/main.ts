@@ -3,6 +3,6 @@
  */
 export const hotelDetailUrl = (id: number) => {
   return {
-    pathname: `/hotel/${id}`,
+    pathname: `/api/hotel/${id}`,
   };
 };

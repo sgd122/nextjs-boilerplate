@@ -5,7 +5,6 @@ import JotaiContext from '@/components/Context/JotaiContext';
 import ReactQueryContext from '@/components/Context/ReqctQueryContext';
 import AuthContext from '@/components/Context/SessionContext';
 import StyledComponentsRegistry from '@/lib/registry';
-import GlobalStyle from '@/styles/global-styles';
 import { getUserServerSession } from '@/utils/session/getUserServerSession';
 
 export const metadata: Metadata = {
@@ -19,7 +18,6 @@ const RootLayout = async ({ children }: { children: React.ReactNode }) => {
     <html lang="ko">
       <AuthContext session={session}>
         <body>
-          <GlobalStyle />
           <StyledComponentsRegistry>
             <JotaiContext>
               <ReactQueryContext>{children}</ReactQueryContext>

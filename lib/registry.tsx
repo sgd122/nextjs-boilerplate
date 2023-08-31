@@ -4,6 +4,8 @@ import { useServerInsertedHTML } from 'next/navigation';
 import React, { useState } from 'react';
 import { ServerStyleSheet, StyleSheetManager } from 'styled-components';
 
+import GlobalStyle from '@/styles/global-styles';
+
 const StyledComponentsRegistry = ({
   children,
 }: {
@@ -23,6 +25,7 @@ const StyledComponentsRegistry = ({
 
   return (
     <StyleSheetManager sheet={styledComponentsStyleSheet.instance}>
+      <GlobalStyle />
       {children}
     </StyleSheetManager>
   );
