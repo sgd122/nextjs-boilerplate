@@ -1,9 +1,11 @@
 import type { AxiosRequestConfig } from 'axios';
 import axios from 'axios';
-import { getSession } from 'next-auth/react';
 
 import { BASE_URL } from '@/api/config';
+import { getUserClientSession } from '@/utils/session/getUserClientSession';
+import { getUserServerSession } from '@/utils/session/getUserServerSession';
 
+const isServer = typeof window === 'undefined';
 const instance = axios.create({
   baseURL: BASE_URL,
 });
@@ -24,10 +26,13 @@ const isAccessTokenAttachedToAxiosDefaults = () => {
 const setAccessTokenOnRequestAndAsAxiosDefaults = async (
   request: AxiosRequestConfig
 ) => {
-  const session = await getSession();
+  const session = isServer
+    ? await getUserServerSession()
+    : getUserClientSession();
 
   if (session) {
-    const AuthHeaderValue = `Bearer ${session?.user?.accessToken}`;
+    const userSession = session.session;
+    const AuthHeaderValue = `Bearer ${userSession?.user?.accessToken}`;
     if (!request.headers) request.headers = {};
     request.headers.Authorization = AuthHeaderValue;
 

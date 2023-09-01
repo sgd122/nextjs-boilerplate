@@ -1,13 +1,6 @@
-import type { IUser } from '@api/user';
-import type { ISODateString } from 'next-auth';
 import { getServerSession } from 'next-auth';
 
 import { authOptions } from '@/pages/api/auth/[...nextauth]';
-
-export type Session = {
-  user?: IUser;
-  expires: ISODateString;
-};
 
 async function getSession() {
   try {
@@ -30,5 +23,5 @@ async function getSession() {
  */
 export async function getUserServerSession() {
   const session = await getSession();
-  return session;
+  return { session };
 }
