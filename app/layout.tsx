@@ -1,4 +1,3 @@
-import './globals.css';
 import type { Metadata } from 'next';
 
 import JotaiContext from '@/components/Context/JotaiContext';
@@ -13,7 +12,7 @@ export const metadata: Metadata = {
 };
 
 const RootLayout = async ({ children }: { children: React.ReactNode }) => {
-  const session = await getUserServerSession();
+  const { session } = await getUserServerSession();
   return (
     <html lang="ko">
       <AuthContext session={session}>
