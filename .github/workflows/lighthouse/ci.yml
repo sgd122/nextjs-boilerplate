@@ -33,6 +33,7 @@ jobs:
         with:
           urls: |
             http://localhost:3000/
+          budgetPath: ./budget.json
           configPath: './lighthouserc.js'
           uploadArtifacts: true
           temporaryPublicStorage: true
