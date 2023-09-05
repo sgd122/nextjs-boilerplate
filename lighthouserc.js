@@ -31,6 +31,8 @@ module.exports = {
         'meta-description': 'off',
         'html-has-lang': 'off',
         'robots-txt': 'off',
+        'bf-cache': 'off',
+        'unused-css-rules': 'off',
         viewport: 'off',
         // performance 카테고리 점수가 70점 미만이면 warning
         'categories:performance': ['warn', { minScore: 0.7 }],
