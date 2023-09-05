@@ -2,6 +2,9 @@ name: Lighthouse CI
 
 on: pull_request
 
+permissions:
+  pull-requests: write
+
 jobs:
   lhci:
     name: Lighthouse
@@ -43,7 +46,7 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
-            const lighthouseCommentMaker = require('./.github/workflows/lighthouse/lighthouseCommentMaker.js');
+            const lighthouseCommentMaker = require('./.github/lighthouse/lighthouseCommentMaker.js');
 
             const lighthouseOutputs = {
               manifest: ${{ steps.lighthouse_audit.outputs.manifest }},
@@ -53,11 +56,11 @@ jobs:
             const comment = lighthouseCommentMaker({ lighthouseOutputs });
             core.setOutput("comment", comment);
 
-#      - name: Add Lighthouse stats as comment
-#        id: comment_to_pr
-#        uses: marocchino/sticky-pull-request-comment@v2
-#        with:
+      - name: Add Lighthouse stats as comment
+        id: comment_to_pr
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
 #          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 #          number: ${{ github.event.pull_request.number }}
-#          header: lighthouse
-#          message: ${{ steps.format_lighthouse_score.outputs.comment }}
+          header: lighthouse
+          message: ${{ steps.format_lighthouse_score.outputs.comment }}
