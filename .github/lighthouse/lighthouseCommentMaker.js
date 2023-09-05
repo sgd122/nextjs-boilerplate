@@ -23,13 +23,21 @@
  */
 
 const formatScore = (/** @type { number } */ score) => Math.round(score * 100);
-const emojiScore = (/** @type { number } */ score) =>
+
+const emojiScorePerformance = (/** @type { number } */ score) =>
   score >= 0.9 ? '🟢' : score >= 0.5 ? '🟠' : '🔴';
+const emojiScore = (/** @type { number } */ score) =>
+  score >= 0.9 ? '🟢' : score >= 0.7 ? '🟠' : '🔴';
 
 const scoreRow = (
   /** @type { string } */ label,
   /** @type { number } */ score
 ) => `| ${emojiScore(score)} ${label} | ${formatScore(score)} |`;
+
+const scoreRowPerformance = (
+  /** @type { string } */ label,
+  /** @type { number } */ score
+) => `| ${emojiScorePerformance(score)} ${label} | ${formatScore(score)} |`;
 
 /**
  * @param {LighthouseOutputs} lighthouseOutputs
@@ -44,11 +52,10 @@ We ran Lighthouse against the changes and produced this [report](${reportUrl}). 
 
 | Category | Score |
 | -------- | ----- |
-${scoreRow('Performance', summary.performance)}
+${scoreRowPerformance('Performance', summary.performance)}
 ${scoreRow('Accessibility', summary.accessibility)}
 ${scoreRow('Best practices', summary['best-practices'])}
 ${scoreRow('SEO', summary.seo)}
-${scoreRow('PWA', summary.pwa)}
 
 *Lighthouse ran against [${testedUrl}](${testedUrl})*
 `;

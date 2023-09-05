@@ -22,21 +22,13 @@ jobs:
           npm install
           npm run build
 
-      #      - name: run Lighthouse CI
-      #        id: lighthouse_audit
-      #        env:
-      #          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
-      #        run: |
-      #          npm install -g @lhci/cli@0.12.x
-      #          lhci autorun
-
       - name: Audit URLs using Lighthouse
         id: lighthouse_audit
         uses: treosh/lighthouse-ci-action@v10
         with:
           urls: |
             http://localhost:3000/
-          budgetPath: './.github/workflows/lighthouse/budget.json'
+          budgetPath: './.github/lighthouse/budget.json'
           configPath: './lighthouserc.js'
           uploadArtifacts: true
           temporaryPublicStorage: true
@@ -60,7 +52,5 @@ jobs:
         id: comment_to_pr
         uses: marocchino/sticky-pull-request-comment@v2
         with:
-#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#          number: ${{ github.event.pull_request.number }}
           header: lighthouse
           message: ${{ steps.format_lighthouse_score.outputs.comment }}
