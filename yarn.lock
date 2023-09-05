@@ -1337,7 +1337,7 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
-"@lhci/cli@^0.12.0":
+"@lhci/cli@0.12.x":
   version "0.12.0"
   resolved "https://registry.yarnpkg.com/@lhci/cli/-/cli-0.12.0.tgz#b97bba6c40edd36ab763765d6e678bd956af399d"
   integrity sha512-ta0bRmY4tTZ2SArCtElZcTv8mNsPFE7ssDLytwJOAwTUzB8x1mN9qKQrQ/ua3GPBEoQrGCpG9N8DVH5OmvIkRw==
