@@ -27,24 +27,24 @@ jobs:
           npm install -g @lhci/cli@0.12.x
           lhci autorun
 
-      - name: Format lighthouse score
-        id: format_lighthouse_score
-        uses: actions/github-script@v6
-        with:
-          script: |
-            const lighthouseCommentMaker = require('./.github/workflows/lighthouseCommentMaker.js');
-            
-            const lighthouseOutputs = {
-              manifest: ${{ steps.lighthouse_audit.outputs.manifest }},
-              links: ${{ steps.lighthouse_audit.outputs.links }}
-            };
-            
-            const comment = lighthouseCommentMaker({ lighthouseOutputs });
-            core.setOutput("comment", comment);
+#      - name: Format lighthouse score
+#        id: format_lighthouse_score
+#        uses: actions/github-script@v6
+#        with:
+#          script: |
+#            const lighthouseCommentMaker = require('./.github/workflows/lighthouseCommentMaker.js');
+#
+#            const lighthouseOutputs = {
+#              manifest: ${{ steps.lighthouse_audit.outputs.manifest }},
+#              links: ${{ steps.lighthouse_audit.outputs.links }}
+#            };
+#
+#            const comment = lighthouseCommentMaker({ lighthouseOutputs });
+#            core.setOutput("comment", comment);
 
 #      - name: Add Lighthouse stats as comment
 #        id: comment_to_pr
-#        uses: marocchino/sticky-pull-request-comment@v2.0.0
+#        uses: marocchino/sticky-pull-request-comment@v2
 #        with:
 #          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 #          number: ${{ github.event.pull_request.number }}
