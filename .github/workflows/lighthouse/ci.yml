@@ -38,20 +38,20 @@ jobs:
           uploadArtifacts: true
           temporaryPublicStorage: true
 
-#      - name: Format lighthouse score
-#        id: format_lighthouse_score
-#        uses: actions/github-script@v6
-#        with:
-#          script: |
-#            const lighthouseCommentMaker = require('./.github/workflows/lighthouseCommentMaker.js');
-#
-#            const lighthouseOutputs = {
-#              manifest: ${{ steps.lighthouse_audit.outputs.manifest }},
-#              links: ${{ steps.lighthouse_audit.outputs.links }}
-#            };
-#
-#            const comment = lighthouseCommentMaker({ lighthouseOutputs });
-#            core.setOutput("comment", comment);
+      - name: Format lighthouse score
+        id: format_lighthouse_score
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const lighthouseCommentMaker = require('./.github/workflows/lighthouse/lighthouseCommentMaker.js');
+
+            const lighthouseOutputs = {
+              manifest: ${{ steps.lighthouse_audit.outputs.manifest }},
+              links: ${{ steps.lighthouse_audit.outputs.links }}
+            };
+
+            const comment = lighthouseCommentMaker({ lighthouseOutputs });
+            core.setOutput("comment", comment);
 
 #      - name: Add Lighthouse stats as comment
 #        id: comment_to_pr
