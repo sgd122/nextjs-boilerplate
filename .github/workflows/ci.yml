@@ -19,13 +19,13 @@ jobs:
           npm install
           npm run build
 
-#      - name: run Lighthouse CI
-#        id: lighthouse_audit
-#        env:
-#          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
-#        run: |
-#          npm install -g @lhci/cli@0.12.x
-#          lhci autorun
+      #      - name: run Lighthouse CI
+      #        id: lighthouse_audit
+      #        env:
+      #          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+      #        run: |
+      #          npm install -g @lhci/cli@0.12.x
+      #          lhci autorun
 
       - name: Audit URLs using Lighthouse
         id: lighthouse_audit
@@ -33,7 +33,7 @@ jobs:
         with:
           urls: |
             http://localhost:3000/
-          budgetPath: ./budget.json
+          budgetPath: './.github/workflows/lighthouse/budget.json'
           configPath: './lighthouserc.js'
           uploadArtifacts: true
           temporaryPublicStorage: true
