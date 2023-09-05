@@ -34,7 +34,12 @@ module.exports = {
         'unused-css-rules': 'off',
 
         // performance 카테고리 점수가 70점 미만이면 warning
-        'categories:performance': ['warn', { minScore: 0.7 }],
+        'categories:performance': [
+          'warn',
+          { minScore: 0.7 },
+          'error',
+          { minScore: 0.5 },
+        ],
         // accessibility 가 70점 미만이면 error
         'categories:accessibility': ['error', { minScore: 0.7 }],
         // seo 가 70점 미만이면 error
