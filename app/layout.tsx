@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
+import React from 'react';
 
-import JotaiContext from '@/components/Context/JotaiContext';
-import ReactQueryContext from '@/components/Context/ReqctQueryContext';
+import Providers from '@/components/Context/Providers';
 import AuthContext from '@/components/Context/SessionContext';
-import StyledComponentsRegistry from '@/lib/registry';
+import { notoSerifFont, pretendardFont } from '@/styles/fonts';
 import { getUserServerSession } from '@/utils/session/getUserServerSession';
 
 export const metadata: Metadata = {
@@ -17,14 +17,13 @@ export const metadata: Metadata = {
 const RootLayout = async ({ children }: { children: React.ReactNode }) => {
   const { session } = await getUserServerSession();
   return (
-    <html lang="ko">
+    <html
+      lang="ko"
+      className={`${pretendardFont.variable} ${notoSerifFont.variable} , Malgun Gothic, Helvetica Neue, sans-serif`}
+    >
       <AuthContext session={session}>
         <body>
-          <StyledComponentsRegistry>
-            <JotaiContext>
-              <ReactQueryContext>{children}</ReactQueryContext>
-            </JotaiContext>
-          </StyledComponentsRegistry>
+          <Providers>{children}</Providers>
         </body>
       </AuthContext>
     </html>

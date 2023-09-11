@@ -1,12 +1,10 @@
 'use client';
-
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle, css } from 'styled-components';
 import reset from 'styled-reset';
 
-import { notoSansKr, notoSerifFont, pretendardFont } from '@/styles/fonts';
+import { notoSerifFont, pretendardFont } from '@/styles/fonts';
 
-const GlobalStyle = createGlobalStyle`
-  ${reset}
+export const styles = css`
   *,
   *::after,
   *::before {
@@ -19,9 +17,10 @@ const GlobalStyle = createGlobalStyle`
   html, body {
     padding: 0;
     margin: 0;
-    font-family: ${pretendardFont.style.fontFamily}, ${notoSerifFont.style.fontFamily}, ${notoSansKr.style.fontFamily}, Malgun Gothic, Helvetica Neue, sans-serif;
+     //font-family: ${pretendardFont.style.fontFamily}, ${notoSerifFont.style.fontFamily}, Malgun Gothic, Helvetica Neue, sans-serif;
+    font-family: var(--font-pretendard), var(--font-noto-serif), Malgun Gothic, Helvetica Neue, sans-serif;
   }
-  
+
   #__next {
     display: flex;
     flex-direction: column;
@@ -45,11 +44,6 @@ const GlobalStyle = createGlobalStyle`
     -webkit-appearance: none;
   }
 
-
-  a, input, textarea, button {
-    font-family: inherit;
-  }
-
   strong, b {
     font-weight: bold;
   }
@@ -57,7 +51,7 @@ const GlobalStyle = createGlobalStyle`
   a {
     text-decoration: none;
   }
-  
+
   a:hover {
     text-decoration: underline;
   }
@@ -69,6 +63,11 @@ const GlobalStyle = createGlobalStyle`
     cursor: pointer;
     margin: 0;
   }
+`;
+
+const GlobalStyle = createGlobalStyle`
+  ${reset}
+  ${styles}
 `;
 
 export default GlobalStyle;

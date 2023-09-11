@@ -2,8 +2,14 @@
 
 import { useServerInsertedHTML } from 'next/navigation';
 import React, { useState } from 'react';
-import { ServerStyleSheet, StyleSheetManager } from 'styled-components';
+import {
+  ServerStyleSheet,
+  StyleSheetManager,
+  ThemeProvider,
+} from 'styled-components';
 
+import theme from '@/lib/styled-components/theme';
+import { notoSerifFont, pretendardFont } from '@/styles/fonts';
 import GlobalStyle from '@/styles/global-styles';
 
 const StyledComponentsRegistry = ({
@@ -18,15 +24,31 @@ const StyledComponentsRegistry = ({
   useServerInsertedHTML(() => {
     const styles = styledComponentsStyleSheet.getStyleElement();
     styledComponentsStyleSheet.instance.clearTag();
-    return <>{styles}</>;
+    return (
+      <>
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
+            :root {
+              --font-pretendard: ${pretendardFont.style.fontFamily};
+              --font-noto-serif ${notoSerifFont.style.fontFamily}, sans-serif;
+            }
+            `,
+          }}
+        />
+        {styles}
+      </>
+    );
   });
 
   if (typeof window !== 'undefined') return <>{children}</>;
 
   return (
     <StyleSheetManager sheet={styledComponentsStyleSheet.instance}>
-      <GlobalStyle />
-      {children}
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        {children}
+      </ThemeProvider>
     </StyleSheetManager>
   );
 };
