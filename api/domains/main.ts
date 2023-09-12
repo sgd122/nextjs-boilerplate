@@ -1,4 +1,4 @@
-import instance from '@/api';
+import instance from '@/api/fetch';
 import { API_URL } from '@/api/urls';
 
 interface Sample {

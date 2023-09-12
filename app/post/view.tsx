@@ -3,7 +3,6 @@
 import { useAtom } from 'jotai';
 
 import { useFetchMainBanners } from '@/api/queries/main';
-import { Root } from '@/app/post/styles';
 import { isSearchToggleAtom } from '@/store';
 
 const ViewPost = () => {
@@ -13,7 +12,7 @@ const ViewPost = () => {
   return (
     <div>
       ViewPost: {JSON.stringify(isSearchToggle)}
-      <Root>{JSON.stringify(data)}</Root>
+      <div>{JSON.stringify(data)}</div>
     </div>
   );
 };
