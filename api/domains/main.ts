@@ -5,7 +5,7 @@ interface Sample {
   id: number;
 }
 
-export const fetchMainBanners = async (id: number): Promise<Sample[]> => {
+export const fetchMainBanners = async (id: number) => {
   const { data } = await instance.get<Sample[]>(
     `${API_URL.DETAIL(id).pathname}`
   );
