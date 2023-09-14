@@ -3,7 +3,7 @@ import React from 'react';
 
 import Providers from '@/components/Context/Providers';
 import AuthContext from '@/components/Context/SessionContext';
-import { notoSerifFont, pretendardFont } from '@/styles/fonts';
+import { notoSansKr, notoSerifFont, pretendardFont } from '@/styles/fonts';
 import { getUserServerSession } from '@/utils/session/getUserServerSession';
 import '@/styles/global.scss';
 
@@ -20,7 +20,7 @@ const RootLayout = async ({ children }: { children: React.ReactNode }) => {
   return (
     <html
       lang="ko"
-      className={`${pretendardFont.variable} ${notoSerifFont.variable}`}
+      className={`${notoSansKr.variable}  ${pretendardFont.variable} ${notoSerifFont.variable}`}
     >
       <AuthContext session={session}>
         <body>
