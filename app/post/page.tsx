@@ -1,9 +1,8 @@
-import { dehydrate } from '@tanstack/query-core';
 import type { Metadata } from 'next';
 
 import { fetchMainBanners } from '@/api/domains/main';
 import ViewPost from '@/app/post/view';
-import HydrateOnClient from '@/components/Context/HydrateOnClient';
+import HydratePage from '@/components/basic/HydratePage';
 import getQueryClient from '@/utils/query/getQueryClient';
 
 export const metadata: Metadata = {
@@ -16,12 +15,11 @@ const Post = async () => {
   await queryClient.prefetchQuery(['fetchMainBanners', sampleId], () =>
     fetchMainBanners(sampleId)
   );
-  const dehydratedState = dehydrate(queryClient);
 
   return (
-    <HydrateOnClient state={dehydratedState}>
+    <HydratePage queryClient={queryClient}>
       <ViewPost />
-    </HydrateOnClient>
+    </HydratePage>
   );
 };
 

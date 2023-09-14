@@ -2,8 +2,9 @@
 
 import { useAtom } from 'jotai';
 
+import styles from './post.module.scss';
+
 import { useFetchMainBanners } from '@/api/queries/main';
-import { Root } from '@/app/post/styles';
 import { isSearchToggleAtom } from '@/store';
 
 const ViewPost = () => {
@@ -11,9 +12,9 @@ const ViewPost = () => {
   const [isSearchToggle] = useAtom(isSearchToggleAtom);
 
   return (
-    <div>
+    <div className={styles.container}>
       ViewPost: {JSON.stringify(isSearchToggle)}
-      <Root>{JSON.stringify(data)}</Root>
+      <div>{JSON.stringify(data)}</div>
     </div>
   );
 };

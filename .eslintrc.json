@@ -29,6 +29,7 @@
     "import"
   ],
   "rules": {
+    "no-useless-catch": "off",
     "no-use-before-define": "off",
     "@tanstack/query/exhaustive-deps": "error",
     "@tanstack/query/prefer-query-object-syntax": "error",
